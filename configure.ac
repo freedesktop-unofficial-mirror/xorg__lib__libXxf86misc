@@ -1,6 +1,6 @@
 AC_PREREQ([2.57])
 
-AC_INIT(libXxf86misc, 1.1.0, [xorg@lists.freedestkop.org], libXxf86misc)
+AC_INIT(libXxf86misc, 1.1.0, [xorg@lists.freedesktop.org], libXxf86misc)
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 AM_MAINTAINER_MODE
 
