@@ -1,6 +1,6 @@
 AC_PREREQ([2.57])
 
-AC_INIT(libXxf86misc, 1.1.0, [xorg@lists.freedesktop.org], libXxf86misc)
+AC_INIT(libXxf86misc, 0.99.0, [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg], libXxf86misc)
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 AM_MAINTAINER_MODE
 
@@ -12,6 +12,8 @@ AC_PROG_LIBTOOL
 
 # Checks for pkg-config packages
 PKG_CHECK_MODULES(XXF86MISC, xproto x11 xextproto xext xf86miscproto)
+
+XORG_RELEASE_VERSION
 
 AC_OUTPUT([Makefile
 	   src/Makefile
