@@ -29,7 +29,7 @@ libmandir = $(mandir)/man$(LIB_MAN_SUFFIX)
 
 libman_SOURCES = XF86Misc.man
 
-BUILT_SOURCES = .shadows.DONE
+BUILT_SOURCES = shadows.DONE
 
 EXTRA_DIST = $(libman_SOURCES)
 
@@ -68,7 +68,7 @@ XF86Misc_shadows =                          \
     XF86MiscGetKbdSettings                  \
     XF86MiscSetKbdSettings
 
-.shadows.DONE:
+shadows.DONE:
 	-rm -f $(XF86Misc_shadows:=.$(LIB_MAN_SUFFIX))
 	(for i in $(XF86Misc_shadows:=.$(LIB_MAN_SUFFIX)) ; do \
 	 echo .so man$(LIB_MAN_SUFFIX)/XF86Misc.$(LIB_MAN_SUFFIX) > $$i; \
