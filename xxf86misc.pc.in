@@ -6,5 +6,7 @@ includedir=@includedir@
 Name: Xxf86misc
 Description: XFree86 Misc Extension Library
 Version: @VERSION@
-Cflags: -I${includedir} @XXF86MISC_CFLAGS@
-Libs: -L${libdir} -lXxf86misc @XXF86MISC_LIBS@
+Requires: xf86miscproto
+Requires.private: x11 xext
+Cflags: -I${includedir}
+Libs: -L${libdir} -lXxf86misc
