@@ -1,4 +1,4 @@
-AC_PREREQ([2.57])
+AC_PREREQ([2.60])
 
 AC_INIT(libXxf86misc, 1.0.2, [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg], libXxf86misc)
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
