@@ -2,7 +2,7 @@ dnl Process this file with autoconf to create configure.
 
 # Initialize Autoconf
 AC_PREREQ([2.60])
-AC_INIT([libXxf86misc], [1.0.2],
+AC_INIT([libXxf86misc], [1.0.3],
         [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
         [libXxf86misc])
 AC_CONFIG_SRCDIR([Makefile.am])
