@@ -147,6 +147,8 @@ Bool XF86MiscGetMouseSettings(Display* dpy, XF86MiscMouseSettings *mouseinfo)
         if (!(mouseinfo->device = Xcalloc(rep.devnamelen + 1, 1))) {
             _XEatData(dpy, (rep.devnamelen+3) & ~3);
             Xfree(mouseinfo->device);
+	    UnlockDisplay(dpy);
+	    SyncHandle();
             return False;
         }
         _XReadPad(dpy, mouseinfo->device, rep.devnamelen);
@@ -291,6 +293,8 @@ Bool XF86MiscGetFilePaths(Display* dpy, XF86MiscFilePaths *filpaths)
         if (!(filpaths->configfile = Xcalloc(rep.configlen + 1, 1))) {
             _XEatData(dpy, ((rep.configlen+3) & ~3) + ((rep.modulelen+3) & ~3)
 			    + ((rep.loglen+3) & ~3));
+	    UnlockDisplay(dpy);
+	    SyncHandle();
             return False;
         }
     }
@@ -301,6 +305,8 @@ Bool XF86MiscGetFilePaths(Display* dpy, XF86MiscFilePaths *filpaths)
 			    + ((rep.loglen+3) & ~3));
             if (filpaths->configfile)
 		    Xfree(filpaths->configfile);
+	    UnlockDisplay(dpy);
+	    SyncHandle();
             return False;
         }
     }
@@ -313,6 +319,8 @@ Bool XF86MiscGetFilePaths(Display* dpy, XF86MiscFilePaths *filpaths)
 		    Xfree(filpaths->configfile);
             if (filpaths->modulepath)
 		    Xfree(filpaths->modulepath);
+	    UnlockDisplay(dpy);
+	    SyncHandle();
             return False;
         }
     }
@@ -374,6 +382,8 @@ Status XF86MiscPassMessage(Display* dpy, int screen,
     if (rep.mesglen) {
         if (!(*retmsg = Xcalloc(rep.mesglen + 1, 1))) {
             _XEatData(dpy, ((rep.mesglen+3) & ~3));
+	    UnlockDisplay(dpy);
+	    SyncHandle();
             return BadAlloc;
         }
         _XReadPad(dpy, *retmsg, rep.mesglen);
