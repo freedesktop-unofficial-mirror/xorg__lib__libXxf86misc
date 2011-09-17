@@ -42,9 +42,9 @@ static /* const */ XExtensionHooks xf86misc_extension_hooks = {
     NULL,				/* error_string */
 };
 
-static XEXT_GENERATE_FIND_DISPLAY (find_display, xf86misc_info, 
-				   xf86misc_extension_name, 
-				   &xf86misc_extension_hooks, 
+static XEXT_GENERATE_FIND_DISPLAY (find_display, xf86misc_info,
+				   xf86misc_extension_name,
+				   &xf86misc_extension_hooks,
 				   0, NULL)
 
 static XEXT_GENERATE_CLOSE_DISPLAY (close_display, xf86misc_info)
@@ -91,7 +91,7 @@ Bool XF86MiscQueryVersion(Display* dpy, int* majorVersion, int* minorVersion)
     SyncHandle();
     if (*majorVersion > 0 || *minorVersion > 5)
 	XF86MiscSetClientVersion(dpy);
-    
+
     return True;
 }
 
@@ -191,13 +191,13 @@ Bool XF86MiscSetMouseSettings(Display* dpy, XF86MiscMouseSettings *mouseinfo)
     XExtDisplayInfo *info = find_display (dpy);
     xXF86MiscSetMouseSettingsReq *req;
     int majorVersion, minorVersion;
-    
+
     XF86MiscCheckExtension (dpy, info, False);
     XF86MiscQueryVersion(dpy, &majorVersion, &minorVersion);
-    
+
     LockDisplay(dpy);
     GetReq(XF86MiscSetMouseSettings, req);
-    
+
     req->reqType = info->codes->major_opcode;
     req->xf86miscReqType = X_XF86MiscSetMouseSettings;
     req->mousetype = mouseinfo->type;
@@ -218,7 +218,7 @@ Bool XF86MiscSetMouseSettings(Display* dpy, XF86MiscMouseSettings *mouseinfo)
 	Data(dpy, mouseinfo->device, req->devnamelen);
 	}
     }
-	
+
     UnlockDisplay(dpy);
     SyncHandle();
     return True;
